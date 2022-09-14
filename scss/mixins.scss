@@ -1,0 +1,33 @@
+$mobile: 1040px;
+
+@mixin PcSlideImages($index) {
+  background: url("../images/slider0"+$index+".png") no-repeat 0 0 / cover;
+}
+
+@mixin MobileSlideImages($index) {
+  @media (max-width: $mobile){
+    background: url("../images/mb-slider0"+$index+".png") no-repeat 0 0 / cover;
+  }
+}
+
+@mixin mobile{
+  @media (max-width: $mobile){
+    @content;
+  }
+}
+
+@include mobile{
+  .inner {
+    width: 100%;
+  }
+  main {
+    .slider-area {
+      > ul li a {
+        height: 890px;
+      }
+      .swiper-button-next, .swiper-button-prev, .swiper-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
